@@ -10,83 +10,20 @@ st.title("Range Filter [DW] - Señales de Compra")
 # -----------------------------
 # Lista de tickers
 tickers = [
-    "AAPL", "MSFT", "GOOGL", "AMZN", "FB", "TSLA", "NVDA", "JPM", "V", "DIS",
-    "NFLX", "PYPL", "ADBE", "INTC", "CSCO", "CMCSA", "PEP", "KO", "NKE", "MRK",
-    "WMT", "PFE", "ORCL", "ABT", "CRM", "AMD", "BA", "BAC", "WFC", "C",
-    "GS", "MS", "T", "VZ", "TMO", "UNH", "JNJ", "PG", "HD", "MA",
-    "BRK-B", "XOM", "CVX", "LLY", "ABBV", "DHR", "MCD", "COST", "LOW", "SBUX",
-    "TGT", "UPS", "FDX", "CAT", "MMM", "GE", "HON", "RTX", "LMT", "BA",
-    "DE", "NOC", "GD", "CSX", "NSC", "UNP", "F", "GM", "HMC", "TM",
-    "NIO", "LI", "XPEV", "RIVN", "LCID", "UBER", "LYFT", "SQ", "PLTR", "SNOW",
-    "ZM", "DOCU", "CRWD", "OKTA", "ZS", "PANW", "FTNT", "NET", "DDOG", "HUBS",
-    "MDB", "SHOP", "NOW", "WDAY", "TEAM", "TTD", "ROKU", "PINS", "SNAP", "TWTR",
-    "SPOT", "ETSY", "EBAY", "W", "CHWY", "Z", "ZG", "MTCH", "BABA", "JD",
-    "PDD", "MELI", "SE", "VIPS", "TME", "YUMC", "EDU", "TAL", "BILI", "IQ",
-    "GDS", "U", "PATH", "AI", "C3AI", "UPST", "SOFI", "AFRM", "HOOD", "COIN",
-    "MSTR", "RIOT", "MARA", "HUT", "BITF", "CLSK", "SI", "GLW", "QCOM", "TXN",
-    "AVGO", "AMAT", "LRCX", "KLAC", "ASML", "MU", "ADI", "MCHP", "ON", "STM",
-    "NXPI", "SWKS", "QRVO", "TER", "ENTG", "WDC", "STX", "HPE", "HPQ", "IBM",
-    "DELL", "NTAP", "ANET", "CSCO", "JNPR", "FFIV", "AKAM", "CIEN", "LDOS", "SAIC",
-    "TYL", "BR", "FIS", "FISV", "GPN", "PAYX", "EFX", "VRSK", "MSCI", "SPGI",
-    "IX", "NDAQ", "CME", "ICE", "CBOE", "MKTX", "SCHW", "TROW", "BLK", "BEN",
-    "AMP", "IVZ", "STT", "NTRS", "CFG", "KEY", "RF", "HBAN", "FITB", "SIVB",
-    "ZION", "PNC", "USB", "TFC", "MTB", "FRC", "CMA", "BOKF", "WAL", "EWBC",
-    "ALLY", "SYF", "DFS", "AXP", "COF", "ALL", "PGR", "TRV", "AIG", "MET",
-    "PRU", "AFL", "LNC", "CINF", "WRB", "CB", "HIG", "GL", "L", "ACGL",
-    "BRK-A", "KKR", "BX", "APO", "CG", "ARES", "OWL", "TPG", "BAM", "BN",
-    "VTR", "WELL", "PSA", "DLR", "EQIX", "SBAC", "CCI", "AMT", "PLD", "O",
-    "SPG", "REG", "KIM", "FRT", "BXP", "VNO", "EQR", "AVB", "ESS", "MAA",
-    "UDR", "CPT", "AIV", "EXR", "CUBE", "LSI", "INVH", "SUI", "ELS", "AMH",
-    "DHI", "LEN", "PHM", "TOL", "NVR", "KBH", "MTH", "TMHC", "MHO", "CCS",
-    "Z", "ZG", "RDFN", "OPEN", "COMP", "RKT", "UWMC", "LDI", "GHLD", "VEL",
-    "WBA", "CVS", "RAD", "MCK", "ABC", "CAH", "HSIC", "PDCO", "BIIB", "GILD",
-    "AMGN", "REGN", "VRTX", "ILMN", "BMY", "AZN", "NVS", "SNY", "GSK",
-    "ZTS", "IDXX", "ALGN", "EW", "ISRG", "SYK", "BDX", "BSX", "MDT", "ZBH",
-    "HOLX", "WAT", "A", "BIO", "TECH", "CRL", "PKI", "DGX", "LH", "IQV",
-    "CNC", "CI", "HUM", "MOH", "UNH", "ELV", "CVS", "HCA", "THC", "UHS",
-    "CHE", "EHC", "SEM", "ACHC", "OPCH", "AMN", "TDOC", "DOCS", "PGNY", "RCM",
-    "VEEV", "ALNY", "SGEN", "MRNA", "BNTX", "NVAX", "BCRX", "ARWR", "IONS", "SRPT",
-    "BLUE", "EDIT", "CRSP", "NTLA", "BEAM", "FATE", "KRTX", "KURA", "VIR", "ATRA",
-    "TWST", "ADPT", "NVTA", "CDNA", "GH", "NTRA", "EXAS", "PACB", "TMO", "DHR",
-    "A", "WAT", "PKI", "ILMN", "BIO", "TECH", "CRL", "DGX", "LH", "IQV",
-    "COP", "EOG", "PXD", "OXY", "DVN", "FANG", "HES", "MRO", "APA", "SLB",
-    "HAL", "BKR", "WMB", "KMI", "OKE", "TRGP", "LNG", "ET", "EPD", "MMP",
-    "PSX", "VLO", "MPC", "HFC", "DK", "PBF", "CVI", "INT", "TTE", "BP",
-    "SHEL", "ENB", "TRP", "PBA", "SU", "CNQ", "CVE", "IMO", "E", "PTR",
-    "RDS-A", "RDS-B", "XLE", "XOP", "OIH", "DRQ", "NOV", "RIG", "VAL", "NEX",
-    "CLF", "NUE", "STLD", "RS", "X", "MT", "FCX", "NEM", "GOLD", "AEM",
-    "KL", "RGLD", "WPM", "FNV", "AU", "KGC", "AGI", "HMY", "SBSW", "GFI",
-    "MOS", "CF", "FMC", "SMG", "CTVA", "DOW", "DD", "EMN", "CE", "ALB",
-    "LTHM", "SQM", "LAC", "PLL", "MP", "LVS", "MGM", "WYNN", "CZR", "PENN",
-    "DKNG", "BYD", "CHDN", "MCRI", "RRR", "BALY", "MLCO", "GLPI", "VICI", "MGP",
-    "MAR", "HLT", "IHG", "H", "WH", "CHH", "PK", "APLE", "RHP", "SHO",
-    "MO", "PM", "BTI", "IMBBY", "VGR", "UVV", "K", "GIS", "CPB", "SJM",
-    "HRL", "TSN", "PPC", "CALM", "SEB", "BRFS", "INGR", "POST", "FLO", "LNCE",
-    "MDLZ", "HSY", "TR", "CAG", "THS", "HAIN", "BGS", "MKC", "MJN", "WWAV",
-    "ADM", "BG", "DAR", "FDP", "LANC", "JJSF", "SAFM", "DECK", "CROX", "SKX",
-    "WWW", "COLM", "UAA", "PVH", "RL", "TPR", "VFC", "LEVI", "GIL", "KSS",
-    "M", "JWN", "TJX", "ROST", "BURL", "GPS", "LB", "ANF", "AEO", "URBN",
-    "PLCE", "DSW", "CAL", "SCVL", "BOOT", "FL", "GCO", "HIBB", "ZUMZ", "DBI",
-    "TSCO", "ULTA", "BBY", "GME", "CONN", "AZO", "ORLY", "AAP", "GPC", "LKQ",
-    "MUSA", "PAG", "LAD", "AN", "ABG", "GPI", "SAH", "KMX", "CVNA", "VRM",
-    "ACB", "CGC", "TLRY", "CRON", "HEXO", "OGI", "SNDL", "VFF", "SMG", "STZ",
-    "TAP", "SAM", "BUD", "CCU", "FMX", "DEO", "BF-B", "MGPI", "NAPA", "WVVI"
+    "AAPL","MSFT","GOOGL","AMZN","FB",
+    "TSLA","NVDA","JPM","V","DIS",
+    "NFLX","PYPL","ADBE","INTC","CSCO",
+    "CMCSA","PEP","KO","NKE","MRK",
+    "WMT","PFE","ORCL","ABT","CRM"
 ]
 
 # Input fechas
 start_date = st.date_input("Fecha inicio", pd.to_datetime("2023-01-01"))
 end_date = st.date_input("Fecha fin", pd.to_datetime("2025-09-30"))
 
-# Selector de frecuencia
-interval = st.selectbox(
-    "Selecciona la frecuencia de datos",
-    options=["1d", "1wk"],
-    format_func=lambda x: "Diaria (1d)" if x == "1d" else "Semanal (1wk)"
-)
-
 # Descargar precios
 st.info("Descargando datos de Yahoo Finance...")
-data = yf.download(tickers, start=start_date, end=end_date, interval=interval)
+data = yf.download(tickers, start=start_date, end=end_date)
 close_prices = data['Close']
 high_prices = data['High']
 low_prices = data['Low']
@@ -216,7 +153,7 @@ if buy_signals:
         color = 'green' if trend[i] == 1 else 'red'
         ax.plot(df.index[i-1:i+1], filt[i-1:i+1], color=color, linewidth=2)
     
-    ax.set_title(f"{selected_ticker} - Señal de compra según Range Filter [DW] - Intervalo {interval}")
+    ax.set_title(f"{selected_ticker} - Señal de compra según Range Filter [DW]")
     ax.legend()
     st.pyplot(fig)
 else:
